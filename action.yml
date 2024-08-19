@@ -1,0 +1,47 @@
+name: 'Tensorkube Deploy Action'
+description: 'Deploy your prject using tensorkube'
+inputs:
+  gpus:
+    description: 'Number of gpus to use'
+    required: false
+    default: '0'
+  gpu_type:
+    description: 'Type of gpu to use'
+    required: false
+    default: null
+  cpu:
+    description: 'Number of cpus to use'
+    required: false
+    default: '100'
+  memory:
+    description: 'Amount of memory to use'
+    required: false
+    default: '200'
+  min_scale:
+    description: 'Minimum number of replicas'
+    required: false
+    default: '0'
+  max_scale:
+    description: 'Maximum number of replicas'
+    required: false
+    default: '3'
+  env:
+    description: 'Environment in which to deploy'
+    required: false
+    default: null
+  path:
+    description: 'Path to Dockerfile'
+    required: false
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.gpus }}
+    - ${{ inputs.gpu_type }}
+    - ${{ inputs.cpu }}
+    - ${{ inputs.memory }}
+    - ${{ inputs.min_scale }}
+    - ${{ inputs.max_scale }}
+    - ${{ inputs.env }}
+    - ${{ inputs.path }}
