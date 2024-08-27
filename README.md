@@ -4,6 +4,12 @@ This action runs the deploys the respository application using tensorkube.
 
 ## Inputs
 
+### token
+**Required** Your tensorkube `token`
+
+### session_id
+**Required** Your tensorkube `session_id`
+
 ### gpus
 **Optional** Number of gpus to use. Default `0`.
 
