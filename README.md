@@ -31,6 +31,9 @@ This action runs the deploys the respository application using tensorkube.
 ### `env`
 **Optional** Environment in which to deploy. Default is `null`.
 
+### `secrets`
+**Optional** Secrets to use. Default is ` `.
+
 ### `path`
 **Optional** Path where to run the command. Default is ` `.
 

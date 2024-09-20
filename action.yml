@@ -39,6 +39,10 @@ inputs:
   session_id:
     description: 'Tensorkube session id'
     required: true
+  secrets:
+    description: 'Secrets to use'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -53,3 +57,4 @@ runs:
     - ${{ inputs.path }}
     - ${{ inputs.token }}
     - ${{ inputs.session_id }}
+    - ${{ inputs.secrets }}
