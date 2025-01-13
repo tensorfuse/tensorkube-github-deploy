@@ -3,10 +3,10 @@
 aws eks update-kubeconfig --name tensorkube --region us-east-1 
 
 export CLUSTER_VERSION=$(kubectl get configmap tensorkube-migration -n default -o jsonpath='{.data.version}')
-if [ "$(printf '%s\n' "$CLUSTER_VERSION" "0.0.40" | sort -V | head -n1)" = "0.0.40" ]; then
+if [ "$(printf '%s\n' "$CLUSTER_VERSION" "0.0.42" | sort -V | head -n1)" = "0.0.42" ]; then
     pip3 install tensorkube==$CLUSTER_VERSION
 else
-    pip3 install tensorkube==0.0.40
+    pip3 install tensorkube==0.0.42
 fi
 
 cd $8 
