@@ -22,16 +22,20 @@ for secret in $secrets; do
     secrets_flags="$secrets_flags --secret $secret"
 done
 
-if [ -n "$2" ]; then
-    if [ -n "$7" ]; then
-        tensorkube deploy --gpus $1 --gpu-type $2 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --env $7 --github-actions $secrets_flags
-    else
-        tensorkube deploy --gpus $1 --gpu-type $2 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --github-actions $secrets_flags
-    fi
+if [ -n "${12}" ]; then
+    tensorkube deploy --config-file ${12}
 else
-    if [ -n "$7" ]; then
-        tensorkube deploy --gpus $1 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --env $7 --github-actions $secrets_flags
+    if [ -n "$2" ]; then
+        if [ -n "$7" ]; then
+            tensorkube deploy --gpus $1 --gpu-type $2 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --env $7 --github-actions $secrets_flags
+        else
+            tensorkube deploy --gpus $1 --gpu-type $2 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --github-actions $secrets_flags
+        fi
     else
-        tensorkube deploy --gpus $1 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --github-actions $secrets_flags
+        if [ -n "$7" ]; then
+            tensorkube deploy --gpus $1 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --env $7 --github-actions $secrets_flags
+        else
+            tensorkube deploy --gpus $1 --cpu $3 --memory $4 --min-scale $5 --max-scale $6 --github-actions $secrets_flags
+        fi
     fi
 fi
