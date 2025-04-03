@@ -43,6 +43,10 @@ inputs:
     description: 'Secrets to use'
     required: false
     default: ''
+  config_file_path:
+    description: 'Path to config file'
+    required: false
+    default: null
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -58,3 +62,4 @@ runs:
     - ${{ inputs.token }}
     - ${{ inputs.session_id }}
     - ${{ inputs.secrets }}
+    - ${{ inputs.config_file_path }}
