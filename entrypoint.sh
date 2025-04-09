@@ -61,6 +61,6 @@ elif [ "${13}" = "one-shot" ]; then
     echo "${13}"
     tensorkube job oneshot deploy --config-file ${13}
 else
-    echo "Invalid deployment type: ${13}"
+    echo "Invalid deployment type: ${12}"
     exit 1
 fi
