@@ -59,8 +59,8 @@ if [ "${13}" = "service" ]; then
 elif [ "${13}" = "one-shot" ]; then
     echo "Running one-shot"
     echo "${13}"
-    tensorkube job oneshot deploy --config-file ${13}
+    tensorkube job oneshot deploy --config-file ${12}
 else
-    echo "Invalid deployment type: ${12}"
+    echo "Invalid deployment type: ${13}"
     exit 1
 fi
